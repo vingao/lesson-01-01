@@ -3,41 +3,27 @@ name: complex workflow
 on: push 
 
 jobs: 
-  job1:
-    name: my first job 
+  ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout the code 
-        uses: actions/checkout@v1
-      - name: show date 
-        run: date 
+      - run: date 
 
-  job2:
-    name: my second job 
+  windows:
     runs-on: windows-latest
     steps:
-      - name: checkout the code 
-        uses: actions/checkout@v1
-      - name: show date 
-        run: date 
+      - run: date 
 
-  job3:
-    name: my third job 
+  macos:
     runs-on: macos-latest
     steps:
-      - name: checkout the code 
-        uses: actions/checkout@v1
-      - name: show date 
-        run: date 
+      - run: date 
       
-  job4:
-    name: my fourth job 
+  depends:
     runs-on: ubuntu-latest
-    needs: [job1, job2, job3]
+    needs: [ubuntu, windows, macos]
     steps:
-      - name: checkout the code 
-        uses: actions/checkout@v1
-      - name: wait for other jobs to finish 
-        run: echo "all set!!!"
+      - run: |
+          echo "other jobs all done!!!  my date is as follows:"
+          date 
         
   
