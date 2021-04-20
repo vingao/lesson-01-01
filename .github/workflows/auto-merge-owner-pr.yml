@@ -18,7 +18,7 @@ jobs:
     - name: flake8 and pylint
       run: |
         pip install -r requirements.txt
-        flake8 --ignore=E501,E231 *.py tests/*.py
+        # flake8 --ignore=E501,E231 *.py tests/*.py
         # pylint --errors-only --disable=C0301 --disable=C0326 *.py tests/*.py
     
     - name: unit test
